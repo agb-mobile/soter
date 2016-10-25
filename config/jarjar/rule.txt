@@ -1,1 +1,1 @@
-rule org.apache.http.** si.dlabs.http@1
+rule org.apache.http.** si.kamino.http@1

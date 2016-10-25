@@ -7,10 +7,10 @@ def isReleaseBuild() {
 def repoUrl = ""
 if (isReleaseBuild()) {
     println 'RELEASE BUILD'
-    repoUrl = "http://repo.dlabs.si:8081/artifactory/simple/plugins-release-local/"
+    repoUrl = "s3://kamino-maven.s3.eu-central-1.amazonaws.com/plugins-snapshot/"
 } else {
     println 'DEBUG BUILD'
-    repoUrl = "http://repo.dlabs.si:8081/artifactory/simple/plugins-snapshot-local/"
+    repoUrl = "s3://kamino-maven.s3.eu-central-1.amazonaws.com/plugins-release/"
 }
 
 task sourceJar(type: Jar) {
@@ -48,7 +48,7 @@ publishing {
 
                 Node issue = asNode().appendNode("issueManagement")
                 issue.appendNode("system", "Github")
-                issue.appendNode("url", "https://github.com/dlabs/soter/issues")
+                issue.appendNode("url", "https://github.com/kaminomobile/soter/issues")
 
                 Node scm = asNode().appendNode("scm")
                 scm.appendNode("connection", POM_SCM_CONNECTION)
@@ -68,9 +68,9 @@ publishing {
         maven {
             name 'artifactory'
             url repoUrl
-            credentials {
-                username project.hasProperty('dlabsRepoUsername') ? dlabsRepoUsername : null
-                password project.hasProperty('dlabsRepoPassword') ? dlabsRepoPassword : null
+            credentials(AwsCredentials) {
+                accessKey project.hasProperty('kaminoMavenAccessKey') ? kaminoMavenAccessKey : null
+                secretKey project.hasProperty('kaminoMavenSecretKey') ? kaminoMavenSecretKey : null
             }
         }
     }

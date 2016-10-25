@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 2.0.0 *(2016-10-25)*
+
+ * Changing package name
+ * Removing notification section that was out of scope for this plugin.
+ * Fix for 2.2 plugin where test variants are pure application variants (by [sschuberth](https://github.com/sschuberth))
+
 ## Version 1.0.8 *(2016-05-26)*
 
  * Support for test project fix (by [sschuberth](https://github.com/sschuberth))
