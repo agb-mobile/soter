@@ -25,11 +25,11 @@ Gradle plugin that adds support for Findbugs, Checkstyle and PMD to android proj
         }
     
         dependencies {
-             classpath "gradle.plugin.si.dlabs.gradle:soter:1.0.7"
+             classpath "gradle.plugin.si.kamino.gradle:soter:1.0.7"
         }
     }
     
-    apply plugin: 'si.dlabs.soter'
+    apply plugin: 'si.kamino.soter'
     
 ### Adding plugin rules
 
@@ -96,20 +96,7 @@ Gradle plugin that adds support for Findbugs, Checkstyle and PMD to android proj
             }
 
         }
-        
-        notifications {
-    
-            enabled true
-        
-            hipchat {
-                enabled true
-                token "<hipchat_token>"
-                roomId "<hipchat_room_id>"
-                userId "<hipchat_user_id>"
-            }
-        
-        }
-        
+
         amazon {
             enabled true
             accessKey "<amazon_access_key>"
@@ -136,6 +123,7 @@ Gradle plugin that adds support for Findbugs, Checkstyle and PMD to android proj
     The MIT License (MIT)
     
     Copyright (c) 2015 D·Labs
+    Copyright (c) 2016 Kamino d.o.o.
     
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
