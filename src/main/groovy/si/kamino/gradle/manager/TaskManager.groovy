@@ -5,13 +5,13 @@ import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.artifacts.Configuration
 import org.gradle.api.artifacts.ConfigurationContainer
+import org.gradle.api.resources.TextResource
 import org.gradle.api.tasks.Exec
 import org.gradle.api.tasks.javadoc.Javadoc
 import si.kamino.gradle.extensions.*
 import si.kamino.gradle.task.*
 
 import static com.android.builder.core.BuilderConstants.FD_REPORTS
-
 /**
  * Created by blazsolar on 12/04/15.
  */
@@ -24,6 +24,7 @@ class TaskManager {
     private static final String FOLDER_REPORT_PMD = "pmd";
 
     private static final String FILE_REPORT_CHECKSTYLE = "checkstyle.xml";
+    private static final String FILE_REPORT_CHECKSTYLE_HTML = "checkstyle.html";
 
 
     private final Project project
@@ -75,7 +76,7 @@ class TaskManager {
                 return project.android.applicationVariants
             }
         }
-        return Collections.<BaseVariant>emptySet();
+        return Collections.<BaseVariant> emptySet();
     }
 
     /**
@@ -149,9 +150,24 @@ class TaskManager {
 
         String outputDir = "$project.buildDir/$FD_REPORTS/$FOLDER_REPORT_CHECKSTYLE"
 
+        TextResource htmlReportStyle
+        if (checkstyleExtension.enableHtml) {
+            if (!checkstyleExtension.defaultHtmlReport) {
+                htmlReportStyle = project.resources.text.fromString(
+                        getClass().getClassLoader().getResourceAsStream('config/xsl/checkstyle.xsl').text)
+            }
+        }
+
         checkstyle.reports {
             xml {
+                enabled checkstyleExtension.enableXml
                 destination "$outputDir/$FILE_REPORT_CHECKSTYLE"
+            }
+
+            html {
+                enabled checkstyleExtension.enableHtml
+                destination "$outputDir/$FILE_REPORT_CHECKSTYLE_HTML"
+                stylesheet htmlReportStyle
             }
         }
 

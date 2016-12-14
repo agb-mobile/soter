@@ -8,7 +8,10 @@ import org.gradle.api.tasks.Input
 class CheckstyleExtension extends PluginBaseExtension {
 
     @Input boolean showViolations = false
+    @Input boolean enableXml = true
+    @Input boolean enableHtml = true
+    @Input boolean defaultHtmlReport = false
 
-    String toolVersion = "6.7";
+    String toolVersion = "7.3"
 
 }
