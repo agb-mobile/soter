@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 2.1.0 *(2016-12-14)*
+
+ * Updating default checkstyle to version 7.3.
+ * Adding support for enabeling and disabling xml and html reports for checkstyle.
+ * Custom material designed HTML report for checkstyle. New report is used by default but you can still use old verion by setting `soter.checkstyle.defaultHtmlReport=true`
+
 ## Version 2.0.0 *(2016-10-25)*
 
  * Changing package name

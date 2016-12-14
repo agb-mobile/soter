@@ -47,6 +47,9 @@ Gradle plugin that adds support for Findbugs, Checkstyle and PMD to android proj
             enabled true
             uploadReports true
             toolVersion "6.7"
+            enableXml true
+            enableHtml true
+            defaultHtmlReport false
         }
     
         findbugs {
