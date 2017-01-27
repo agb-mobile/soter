@@ -27,7 +27,20 @@ class Checkstyle extends org.gradle.api.plugins.quality.Checkstyle {
         ignoreFailures extension.ignoreFailures
         showViolations extension.showViolations
 
-        def sets;
+        if (Utils.isGradle34orAbove(project)) {
+            maxErrors extension.maxErrors
+            maxWarnings extension.maxWarnings
+        } else {
+            if (extension.maxErrors != 0) {
+                logger.warn("To use soter.checkstyle.maxErrors you have to update gradle to 3.4 or above")
+            }
+
+            if (extension.maxWarnings != Integer.MAX_VALUE) {
+                logger.warn("To use soter.checkstyle.maxWarnings you have to update gradle to 3.4 or above")
+            }
+        }
+
+        def sets
         if (Utils.is140orAbove()) {
             sets = project.android.sourceSets;
         } else {

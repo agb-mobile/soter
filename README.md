@@ -25,7 +25,7 @@ Gradle plugin that adds support for Findbugs, Checkstyle and PMD to android proj
         }
     
         dependencies {
-             classpath "gradle.plugin.si.kamino.gradle:soter:2.0.0"
+             classpath "gradle.plugin.si.kamino.gradle:soter:2.1.1"
         }
     }
     
@@ -50,6 +50,8 @@ Gradle plugin that adds support for Findbugs, Checkstyle and PMD to android proj
             enableXml true
             enableHtml true
             defaultHtmlReport false
+            maxErrors 0
+            maxWarnings Integer.MAX_VALUES
         }
     
         findbugs {

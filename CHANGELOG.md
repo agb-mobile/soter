@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 2.1.1 *(2017-01-27)* 
+
+ * Updating default checkstyle version to 7.4.
+ * Adding support for `checkstyle.maxErrors` and `checkstyle.maxWarnings` when using Gradle 3.4 or newer.
+
 ## Version 2.1.0 *(2016-12-14)*
 
  * Updating default checkstyle to version 7.3.
