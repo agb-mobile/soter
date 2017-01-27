@@ -1,12 +1,19 @@
 package si.kamino.gradle.commons
 
+import com.android.builder.Version
+import org.gradle.api.Project
+
 /**
  * Created by blazsolar on 01/09/15.
  */
 class Utils {
 
+    public static boolean isGradle34orAbove(Project project) {
+        return versionCompare(project.gradle.gradleVersion, "3.4") >= 0;
+    }
+
     public static boolean is140orAbove() {
-        return Utils.versionCompare(com.android.builder.Version.ANDROID_GRADLE_PLUGIN_VERSION, "1.4.0") >= 0;
+        return versionCompare(Version.ANDROID_GRADLE_PLUGIN_VERSION, "1.4.0") >= 0;
     }
 
     /**

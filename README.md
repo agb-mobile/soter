@@ -50,6 +50,8 @@ Gradle plugin that adds support for Findbugs, Checkstyle and PMD to android proj
             enableXml true
             enableHtml true
             defaultHtmlReport false
+            maxErrors 0
+            maxWarnings Integer.MAX_VALUES
         }
     
         findbugs {
