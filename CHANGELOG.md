@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.1.2 *(2018-01-31)* 
+
+ * Support for Android Gradle plugin 3.1.0.
+
 ## Version 2.1.1 *(2017-01-27)* 
 
  * Updating default checkstyle version to 7.4.
