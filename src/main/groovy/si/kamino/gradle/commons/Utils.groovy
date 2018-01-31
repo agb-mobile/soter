@@ -1,8 +1,6 @@
 package si.kamino.gradle.commons
 
-import com.android.builder.Version
 import org.gradle.api.Project
-
 /**
  * Created by blazsolar on 01/09/15.
  */
@@ -13,7 +11,7 @@ class Utils {
     }
 
     public static boolean is140orAbove() {
-        return versionCompare(Version.ANDROID_GRADLE_PLUGIN_VERSION, "1.4.0") >= 0;
+        return versionCompare(com.android.builder.model.Version.ANDROID_GRADLE_PLUGIN_VERSION, "1.4.0") >= 0;
     }
 
     /**
